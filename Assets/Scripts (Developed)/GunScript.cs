@@ -19,7 +19,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float upRecoil;
         public float sideRecoil;
 
-        public int maxRounds = 30;
+        public int maxRounds = 12;
         private int currentRounds;
         public float reloadTime = 1f;
         private bool isReloading = false;
@@ -31,6 +31,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float nextTimeToFire = 0f;
 
         public Animator animator;
+        public float knockbackForce = 5f;
+
 
         void Start()
         {
@@ -62,7 +64,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
             {
                 fpsController.m_MouseLook.AddRecoil(upRecoil, sideRecoil);
-                nextTimeToFire = Time.time + 1f / fireRate;   
+                nextTimeToFire = Time.time + 1f / fireRate;
                 Shoot();
                 shootse.Play();
             }
@@ -84,26 +86,57 @@ namespace UnityStandardAssets.Characters.FirstPerson
         void Shoot()
         {
             muzzleFlash.Play();
-
             currentRounds--;
 
-            RaycastHit hit;
-            if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
-            {
-                Debug.Log(hit.transform.name);
+            int headLayer = LayerMask.GetMask("ZombieHeadLayer");
+            int defaultLayer = LayerMask.GetMask("Default");
 
-                AIScript target = hit.transform.GetComponent<AIScript>();
+            RaycastHit headHit;
+            RaycastHit bodyHit;
+
+            bool hitHead = Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out headHit, range, headLayer);
+            bool hitBody = Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out bodyHit, range, defaultLayer);
+
+            if (hitHead)
+            {
+                Debug.Log("HEADSHOT!");
+                AIScript zombieHead = headHit.transform.GetComponentInParent<AIScript>();
+                AIExploder exploderHead = headHit.transform.GetComponentInParent<AIExploder>();
+                if (zombieHead != null) zombieHead.TakeDamage(9999f);
+                else if (exploderHead != null) exploderHead.TakeDamage(9999f);
+
+                
+            }
+            else if (hitBody)
+            {
+                AIScript target = bodyHit.transform.GetComponent<AIScript>() ?? bodyHit.transform.GetComponentInParent<AIScript>();
+                AIExploder exploderTarget = bodyHit.transform.GetComponent<AIExploder>() ?? bodyHit.transform.GetComponentInParent<AIExploder>();
+
                 if (target != null)
                 {
                     target.TakeDamage(damage);
+                    ApplyKnockback(target.transform, fpsCam.transform.forward);
+                }
+                else if (exploderTarget != null)
+                {
+                    exploderTarget.TakeDamage(damage);
+                    ApplyKnockback(exploderTarget.transform, fpsCam.transform.forward);
                 }
 
-
-
-                GameObject impactGO = Instantiate(impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-                Destroy(impactGO, 2f);
-
+               
             }
+        }
+
+
+
+
+        void ApplyKnockback(Transform zombie, Vector3 shotDirection)
+        {
+            NavMeshAgentKnockback knockback = zombie.GetComponent<NavMeshAgentKnockback>();
+            if (knockback == null)
+                knockback = zombie.gameObject.AddComponent<NavMeshAgentKnockback>();
+
+            knockback.ApplyKnockback(shotDirection, knockbackForce);
         }
     }
 }

@@ -25,6 +25,8 @@ public class MobileHealthController : MonoBehaviour
     {
 
         healthText.text = playerHealth.ToString("0");
+        healthText.color = playerHealth < 10 ? Color.red : Color.white;
+
         if (playerHealth <= 0)
         {
             SceneManager.LoadScene("LoseScene");

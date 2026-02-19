@@ -103,6 +103,17 @@ public class AIExploder : MonoBehaviour
             fpsc.GetComponent<MobileHealthController>().playerHealth -= explosionDamage;
         }
 
+        // Damage nearby zombies
+        Collider[] hits = Physics.OverlapSphere(transform.position, explosionRange);
+        foreach (Collider hit in hits)
+        {
+            if (hit.gameObject == gameObject) continue; // skip self
+
+            // Check each zombie type
+            hit.GetComponent<AIScript>()?.TakeDamage(explosionDamage);
+            hit.GetComponent<AITankScript>()?.TakeDamage(explosionDamage);
+            hit.GetComponent<AIExploder>()?.TakeDamage(explosionDamage); // chain explosions
+        }
         Destroy(gameObject);
     }
     public void SearchForPlayer()

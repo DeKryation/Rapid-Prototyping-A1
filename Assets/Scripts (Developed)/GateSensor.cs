@@ -24,7 +24,7 @@ public class GateSensor : MonoBehaviour
     }
     public void RaiseGate()
     {
-        if (Input.GetKeyDown(KeyCode.F) && isInSensor)
+        if (Input.GetKeyDown(KeyCode.E) && isInSensor)
         {
             if (GameManager.coins >= 1)
             {

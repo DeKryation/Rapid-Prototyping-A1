@@ -11,7 +11,7 @@ public class AIExploder : MonoBehaviour
     public float viewDistance = 10f;
     public float wanderingRadius = 7f;
     public float WanderSpeed = 4f;
-    public float chaseSpeed = 7f;
+    public float chaseSpeed = 6f;
     private bool isAware = false;
     private Vector3 wanderPoint;
     private NavMeshAgent agent;
@@ -25,6 +25,7 @@ public class AIExploder : MonoBehaviour
     public float explosionRange = 2.5f;
     public float explosionDamage = 40f;
     private bool hasExploded = false;
+    public MobileHealthController mhc;
 
     // Start is called before the first frame update
     public void Start()
@@ -33,6 +34,12 @@ public class AIExploder : MonoBehaviour
         renderer = GetComponent<Renderer>();
         animator = GetComponentInChildren<Animator>();
         wanderPoint = RandomMovePoint();
+
+        mhc = FindObjectOfType<MobileHealthController>();
+        if (mhc == null)
+        {
+            Debug.LogError("[AIExploder] MobileHealthController not found in scene! Player damage will not work.");
+        }
     }
 
     public void ZombiePunchStart()
@@ -47,37 +54,21 @@ public class AIExploder : MonoBehaviour
 
     public void Update()
     {
-        // Don't update if exploded
-        if (hasExploded)
-            return;
+        if (hasExploded) return;
+        if (agent == null || !agent.isOnNavMesh || !agent.enabled) return;
 
         if (isAware)
         {
             agent.SetDestination(fpsc.transform.position);
 
-            // Check if exploder zombie is close enough to explode
-            if (isExploder)
+            // Regular zombie attack behaviour, no proximity explosion check here
+            if (agent.remainingDistance < 1.0f)
             {
-                float distanceToPlayer = Vector3.Distance(transform.position, fpsc.transform.position);
-                if (distanceToPlayer <= explosionRange)
-                {
-                    Explode();
-                    return;
-                }
-            }
-            else
-            {
-                // Regular zombie attack
-                if (agent.remainingDistance < 1.0f)
-                {
-                    animator.SetTrigger("Attack");
-                }
+                animator.SetTrigger("Attack");
             }
 
             animator.SetBool("Aware", true);
             agent.speed = chaseSpeed;
-
-            //renderer.material.color = Color.red;
         }
         else
         {
@@ -85,7 +76,6 @@ public class AIExploder : MonoBehaviour
             Wander();
             animator.SetBool("Aware", false);
             agent.speed = WanderSpeed;
-            //renderer.material.color = Color.blue;
         }
     }
 
@@ -97,10 +87,19 @@ public class AIExploder : MonoBehaviour
         hasExploded = true;
 
         float dist = Vector3.Distance(transform.position, fpsc.transform.position);
+        Debug.Log($"[AIExploder] {gameObject.name} EXPLODED! | Radius: {explosionRange}m | Damage: {explosionDamage}");
 
         if (dist <= explosionRange)
         {
-            fpsc.GetComponent<MobileHealthController>().playerHealth -= explosionDamage;
+            if (mhc != null)
+            {
+                mhc.playerHealth -= explosionDamage;
+                Debug.Log($"[AIExploder] --> Damaged PLAYER | Distance: {dist:F2}m | Damage dealt: {explosionDamage}");
+            }
+            else
+            {
+                Debug.LogError("[AIExploder] MobileHealthController reference is missing!");
+            }
         }
 
         // Damage nearby zombies
@@ -109,12 +108,36 @@ public class AIExploder : MonoBehaviour
         {
             if (hit.gameObject == gameObject) continue; // skip self
 
-            // Check each zombie type
-            hit.GetComponent<AIScript>()?.TakeDamage(explosionDamage);
-            hit.GetComponent<AITankScript>()?.TakeDamage(explosionDamage);
-            hit.GetComponent<AIExploder>()?.TakeDamage(explosionDamage); // chain explosions
+            AIScript ai = hit.GetComponent<AIScript>();
+            AITankScript tank = hit.GetComponent<AITankScript>();
+            AIExploder exploder = hit.GetComponent<AIExploder>();
+
+            if (ai != null)
+            {
+                ai.TakeDamage(explosionDamage);
+                Debug.Log($"[AIExploder] --> Damaged AIScript: {hit.gameObject.name} | Damage: {explosionDamage} | Distance: {Vector3.Distance(transform.position, hit.transform.position):F2}m");
+            }
+            if (tank != null)
+            {
+                tank.TakeDamage(explosionDamage);
+                Debug.Log($"[AIExploder] --> Damaged AITankScript: {hit.gameObject.name} | Damage: {explosionDamage} | Distance: {Vector3.Distance(transform.position, hit.transform.position):F2}m");
+            }
+            if (exploder != null)
+            {
+                exploder.TakeDamage(explosionDamage);
+                Debug.Log($"[AIExploder] --> Chain Explode triggered on: {hit.gameObject.name} | Damage: {explosionDamage} | Distance: {Vector3.Distance(transform.position, hit.transform.position):F2}m");
+            }
+            if (ai == null && tank == null && exploder == null)
+            {
+                Debug.Log($"[AIExploder] --> Hit non-enemy object: {hit.gameObject.name} (ignored)");
+            }
         }
-        Destroy(gameObject);
+        // Play death animation then destroy
+        animator.SetBool("Death", true);
+        agent.enabled = false;
+        chaseSpeed = 0f;
+        WanderSpeed = 0f;
+        Destroy(gameObject, 3f); // Gives time for death animation to play
     }
     public void SearchForPlayer()
     {
@@ -141,6 +164,8 @@ public class AIExploder : MonoBehaviour
 
     public void Wander()
     {
+        if (agent == null || !agent.isOnNavMesh || !agent.enabled) return;
+
         if (Vector3.Distance(transform.position, wanderPoint) < 2f)
         {
             wanderPoint = RandomMovePoint();
@@ -167,19 +192,13 @@ public class AIExploder : MonoBehaviour
         }
     }
 
-    void Death()
+    public void Death()
     {
-        // If it's an exploder, explode on death
-        if (isExploder && !hasExploded)
+        // Explode on death regardless of isExploder check (it's AIExploder after all)
+        if (!hasExploded)
         {
+            Debug.Log($"[AIExploder] {gameObject.name} died and is EXPLODING!");
             Explode();
-        }
-        else
-        {
-            animator.SetBool("Death", true);
-            chaseSpeed = 0f;
-            WanderSpeed = 0f;
-            Destroy(gameObject, 3f);
         }
     }
 }

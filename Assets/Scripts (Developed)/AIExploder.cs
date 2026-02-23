@@ -26,6 +26,9 @@ public class AIExploder : MonoBehaviour
     public float explosionDamage = 40f;
     private bool hasExploded = false;
     public MobileHealthController mhc;
+    public Transform explosionPrefab;
+    public float sizeMultiplier = 1f;
+    public Transform hitVFXPrefab;
 
     // Start is called before the first frame update
     public void Start()
@@ -85,6 +88,13 @@ public class AIExploder : MonoBehaviour
             return;
 
         hasExploded = true;
+
+        // Spawn VFX at zombie's position
+        if (explosionPrefab != null)
+        {
+            Transform vfx = Instantiate(explosionPrefab, transform.position, transform.rotation);
+            vfx.localScale *= sizeMultiplier;
+        }
 
         float dist = Vector3.Distance(transform.position, fpsc.transform.position);
         Debug.Log($"[AIExploder] {gameObject.name} EXPLODED! | Radius: {explosionRange}m | Damage: {explosionDamage}");
@@ -186,6 +196,13 @@ public class AIExploder : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        if (hitVFXPrefab != null)
+        {
+            Transform vfx = Instantiate(hitVFXPrefab, transform.position, transform.rotation);
+            vfx.SetParent(transform); // Attach VFX to the zombie so it moves with it
+            Destroy(vfx.gameObject, 2f);
+
+        }
         if (health <= 0f)
         {
             Death();
@@ -201,4 +218,6 @@ public class AIExploder : MonoBehaviour
             Explode();
         }
     }
+
+
 }

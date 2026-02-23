@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &12744227
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -389,6 +390,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
 --- !u!114 &12744234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,6 +1228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &80178512
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1363,6 +1368,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
 --- !u!114 &80178519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2353,6 +2361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &157367747
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2492,6 +2501,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
 --- !u!114 &157367754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5082,6 +5094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &324464966
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5188,14 +5201,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324464964}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.35, y: 1.04, z: -9.76}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.200001, y: 0, z: -19.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 185796086}
   - {fileID: 1653772008}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 737615623}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &324464972
 MonoBehaviour:
@@ -5233,6 +5246,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400006, guid: 0438351a6e6422d43a09930e9be00ee9, type: 3}
 --- !u!1 &328982976 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1000013042117590, guid: 2ebdc32c603c0f74a8df3ff23c55e8e0,
@@ -6766,6 +6782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &494654252
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6905,6 +6922,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
 --- !u!114 &494654259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9913,6 +9933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &688775930
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10052,6 +10073,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
 --- !u!114 &688775937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10739,6 +10763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &737615618
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10850,6 +10875,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 324464971}
   - {fileID: 1557478701}
   - {fileID: 841458768}
   m_Father: {fileID: 0}
@@ -10878,6 +10904,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
 --- !u!1 &755011184 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100168, guid: abfe6fc5a9b390a488839c1fc3b58dcd,
@@ -15234,6 +15263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &1141136880
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15373,6 +15403,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
 --- !u!114 &1141136887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16893,6 +16926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &1278519940
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17032,6 +17066,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
 --- !u!114 &1278519947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22824,6 +22861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &1658810834
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -22963,6 +23001,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
 --- !u!114 &1658810841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25470,6 +25511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
+  hitVFXPrefab: {fileID: 0}
 --- !u!136 &1814147004
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -25609,6 +25651,9 @@ MonoBehaviour:
   explosionRange: 2.5
   explosionDamage: 40
   mhc: {fileID: 0}
+  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  sizeMultiplier: 1
+  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
 --- !u!114 &1814147011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34478,18 +34523,17 @@ SceneRoots:
   - {fileID: 1278519945}
   - {fileID: 494654257}
   - {fileID: 1658810839}
-  - {fileID: 1765089619}
   - {fileID: 1814147009}
   - {fileID: 688775935}
   - {fileID: 1141136885}
+  - {fileID: 157367752}
+  - {fileID: 737615623}
+  - {fileID: 1765089619}
   - {fileID: 2085179600}
   - {fileID: 2042769430}
-  - {fileID: 157367752}
   - {fileID: 1320602349}
   - {fileID: 1116103338}
-  - {fileID: 324464971}
   - {fileID: 267668051}
-  - {fileID: 737615623}
   - {fileID: 971957655}
   - {fileID: 138171257}
   - {fileID: 658375751}

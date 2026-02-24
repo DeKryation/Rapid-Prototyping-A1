@@ -250,7 +250,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &12744227
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -392,7 +391,7 @@ MonoBehaviour:
   mhc: {fileID: 0}
   explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &12744234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1228,7 +1227,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &80178512
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1370,7 +1368,7 @@ MonoBehaviour:
   mhc: {fileID: 0}
   explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &80178519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2361,7 +2359,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &157367747
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2503,7 +2500,7 @@ MonoBehaviour:
   mhc: {fileID: 0}
   explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &157367754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5094,7 +5091,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &324464966
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6782,7 +6778,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &494654252
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6924,7 +6919,7 @@ MonoBehaviour:
   mhc: {fileID: 0}
   explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &494654259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9933,7 +9928,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &688775930
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10075,7 +10069,7 @@ MonoBehaviour:
   mhc: {fileID: 0}
   explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &688775937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10763,7 +10757,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &737615618
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -10906,7 +10899,7 @@ MonoBehaviour:
   mhc: {fileID: 0}
   explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!1 &755011184 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100168, guid: abfe6fc5a9b390a488839c1fc3b58dcd,
@@ -15263,7 +15256,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &1141136880
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -15405,7 +15397,7 @@ MonoBehaviour:
   mhc: {fileID: 0}
   explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &1141136887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16926,7 +16918,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &1278519940
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -17068,7 +17059,7 @@ MonoBehaviour:
   mhc: {fileID: 0}
   explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &1278519947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22861,7 +22852,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &1658810834
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -23003,7 +22993,7 @@ MonoBehaviour:
   mhc: {fileID: 0}
   explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &1658810841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25511,7 +25501,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  hitVFXPrefab: {fileID: 0}
 --- !u!136 &1814147004
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -25653,7 +25642,7 @@ MonoBehaviour:
   mhc: {fileID: 0}
   explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
   sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400004, guid: d8c41be67f41aa545ae053b0b927f821, type: 3}
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &1814147011
 MonoBehaviour:
   m_ObjectHideFlags: 0

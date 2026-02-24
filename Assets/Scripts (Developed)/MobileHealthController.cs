@@ -36,6 +36,7 @@ public class MobileHealthController : MonoBehaviour
         if (playerHealth < previousHealth)
         {
             TriggerFlash();
+            //insert player damage sfx here
         }
         previousHealth = playerHealth;
 

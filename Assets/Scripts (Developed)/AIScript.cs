@@ -39,6 +39,8 @@ public class AIScript : MonoBehaviour
     public void ZombiePunchStart()
     {
         m_RightFist.GetComponent<Collider>().enabled = true;
+        //Insert zombie punch sfx
+
     }
 
     public void ZombieEnd()
@@ -116,6 +118,8 @@ public class AIScript : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        //insert hit sfx
+
         if (hitVFXPrefab != null)
         {
             Transform vfx = Instantiate(hitVFXPrefab, transform.position, transform.rotation);
@@ -130,6 +134,7 @@ public class AIScript : MonoBehaviour
     }
     void Death ()
     {
+        //Insert death sfx
         animator.SetBool("Death", true);
         chaseSpeed = 0f;
         WanderSpeed = 0f;

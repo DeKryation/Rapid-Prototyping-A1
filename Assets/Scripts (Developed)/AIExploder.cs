@@ -48,6 +48,8 @@ public class AIExploder : MonoBehaviour
     public void ZombiePunchStart()
     {
         m_RightFist.GetComponent<Collider>().enabled = true;
+        //Insert zombie punch sfx
+
     }
 
     public void ZombieEnd()
@@ -84,6 +86,8 @@ public class AIExploder : MonoBehaviour
 
     public void Explode()
     {
+        //Insert explode sfx
+
         if (hasExploded)
             return;
 
@@ -196,6 +200,8 @@ public class AIExploder : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        //insert hit sfx
+
         if (hitVFXPrefab != null)
         {
             Transform vfx = Instantiate(hitVFXPrefab, transform.position, transform.rotation);

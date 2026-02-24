@@ -8,6 +8,7 @@ public class CoinCollection : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
+            //Insert coin collection sfx    
             GameManager.coins++;
             Destroy(other.gameObject);
         }

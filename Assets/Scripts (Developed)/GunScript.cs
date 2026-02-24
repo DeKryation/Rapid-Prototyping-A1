@@ -73,6 +73,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
         IEnumerator Reload()
         {
+            //insert reload sfx here    
             isReloading = true;
             Debug.Log("Reloading");
             animator.SetBool("Reloading", true);
@@ -131,14 +132,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
 
 
-
         void ApplyKnockback(Transform zombie, Vector3 shotDirection)
         {
+            //Insert knockback sfx here
             NavMeshAgentKnockback knockback = zombie.GetComponent<NavMeshAgentKnockback>();
             if (knockback == null)
                 knockback = zombie.gameObject.AddComponent<NavMeshAgentKnockback>();
 
             knockback.ApplyKnockback(shotDirection, knockbackForce);
         }
+
+     
     }
 }

@@ -18,6 +18,7 @@ public class NavMeshAgentKnockback : MonoBehaviour
 
     IEnumerator Knockback(Vector3 direction, float force)
     {
+        //insert knockback sfx here
         if (agent == null) yield break;
 
         agent.enabled = false;

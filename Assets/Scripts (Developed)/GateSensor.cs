@@ -43,6 +43,8 @@ public class GateSensor : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            //Insert gate sensor sfx
+
             isInSensor = true;
         }
     }

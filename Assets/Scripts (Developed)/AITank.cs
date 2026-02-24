@@ -19,6 +19,7 @@ public class AITankScript : MonoBehaviour
     private NavMeshAgent agent;
     private Renderer renderer;
     private Animator animator;
+    public Transform hitVFXPrefab;
 
     public GameObject m_RightFist;
 
@@ -117,6 +118,13 @@ public class AITankScript : MonoBehaviour
     public void TakeDamage(float amount)
     {
         health -= amount;
+        if (hitVFXPrefab != null)
+        {
+            Transform vfx = Instantiate(hitVFXPrefab, transform.position, transform.rotation);
+            vfx.SetParent(transform); // Attach VFX to the zombie so it moves with it
+            Destroy(vfx.gameObject, 2f);
+
+        }
         if (health <= 0f)
         {
             Death();

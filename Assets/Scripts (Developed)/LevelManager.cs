@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     public GameObject popUp;
+    LevelEnd1 levelEnd1;
     public void SelectScene()
     {
         switch (this.gameObject.name)
@@ -23,6 +24,16 @@ public class LevelManager : MonoBehaviour
                 UnityEditor.EditorApplication.isPlaying = false;
                 Application.Quit(); ;
                break;
+            case "RestartButton":
+                if (levelEnd1.level1Completed)
+                {
+                    SceneManager.LoadScene("Level3");
+                }
+                else
+                {
+                    SceneManager.LoadScene("Level1");
+                }
+                break;
             case "MainMenuButton":
                SceneManager.LoadScene("StartScreen");
                break;

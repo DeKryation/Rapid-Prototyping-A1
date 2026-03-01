@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class LevelEnd1 : MonoBehaviour
 {
+    public bool level1Completed = false;
     // Start is called before the first frame update
     void OnTriggerEnter(Collider ChangeScene) 
     {
         if (ChangeScene.gameObject.CompareTag("Player"))
         {
             SceneManager.LoadScene("Level3");
+            level1Completed = true;
         }
     }
 }

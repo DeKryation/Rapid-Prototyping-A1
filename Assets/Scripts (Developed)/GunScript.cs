@@ -21,7 +21,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public int maxRounds = 12;
         private int currentRounds;
-        public float reloadTime = 1f;
+        public float reloadTime = 3f;
         private bool isReloading = false;
 
         public Camera fpsCam;
@@ -36,9 +36,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         void Start()
         {
-            if (currentRounds == -1)
-                currentRounds = maxRounds;
-
+            
+            currentRounds = maxRounds;
             shootse = GetComponent<AudioSource>();
 
         }

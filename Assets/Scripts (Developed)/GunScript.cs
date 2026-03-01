@@ -52,7 +52,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         void Update()
         {
             ammoDisplay.text = currentRounds.ToString();
-            ammoDisplay.color = currentRounds < 6 ? Color.red : Color.white;
+            ammoDisplay.color = currentRounds < 4 ? new Color(0.8616352f, 0.1761203f, 0.1761203f, 1f) : Color.white;
 
             if (isReloading)
                 return;

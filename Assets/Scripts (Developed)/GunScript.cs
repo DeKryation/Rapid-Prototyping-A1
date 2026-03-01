@@ -114,7 +114,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 AIScript target = bodyHit.transform.GetComponent<AIScript>() ?? bodyHit.transform.GetComponentInParent<AIScript>();
                 AIExploder exploderTarget = bodyHit.transform.GetComponent<AIExploder>() ?? bodyHit.transform.GetComponentInParent<AIExploder>();
-
+                AITankScript tankTarget = bodyHit.transform.GetComponent<AITankScript>() ?? bodyHit.transform.GetComponentInParent<AITankScript>();
                 if (target != null)
                 {
                     target.TakeDamage(damage);

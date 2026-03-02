@@ -40,6 +40,8 @@ public class MobileHealthController : MonoBehaviour
         {
             TriggerFlash();
             //insert player damage sfx here
+            AudioManager.Instance.PlaySFX(GameSFX.player_hit);
+
         }
         previousHealth = playerHealth;
 

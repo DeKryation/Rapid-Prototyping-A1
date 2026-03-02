@@ -70,6 +70,8 @@ public class AIExploder : MonoBehaviour
         m_RightFist.GetComponent<Collider>().enabled = true;
         //Insert zombie punch sfx
 
+        AudioManager.Instance.PlaySFX(GameSFX.zombie_punch);
+
     }
 
     public void ZombieEnd()
@@ -118,6 +120,8 @@ public class AIExploder : MonoBehaviour
     public void Explode()
     {
         //Insert explode sfx
+        AudioManager.Instance.PlaySFX(GameSFX.explosion);
+
 
         if (hasExploded)
             return;
@@ -252,6 +256,8 @@ public class AIExploder : MonoBehaviour
     {
         health -= amount;
         //insert hit sfx
+        AudioManager.Instance.PlaySFX(GameSFX.zombie_hit);
+
 
         if (hitVFXPrefab != null)
         {

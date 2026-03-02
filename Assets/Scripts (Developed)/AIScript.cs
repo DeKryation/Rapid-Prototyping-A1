@@ -173,6 +173,8 @@ public class AIScript : MonoBehaviour
     {
         health -= amount;
         //insert hit sfx
+        AudioManager.Instance.PlaySFX(GameSFX.zombie_hit);
+
 
         if (hitVFXPrefab != null)
         {
@@ -189,6 +191,8 @@ public class AIScript : MonoBehaviour
     void Death ()
     {
         //Insert death sfx
+        AudioManager.Instance.PlaySFX(GameSFX.zombie_death);
+
         animator.SetBool("Death", true);
         chaseSpeed = 0f;
         WanderSpeed = 0f;

@@ -16,6 +16,8 @@ public class CoinCollection : MonoBehaviour
         if (other.gameObject.CompareTag("Coin"))
         {
             //Insert coin collection sfx    
+            AudioManager.Instance.PlaySFX(GameSFX.key);
+
             GameManager.coins++;
             Destroy(other.gameObject);
             if (keyNumber == 0)

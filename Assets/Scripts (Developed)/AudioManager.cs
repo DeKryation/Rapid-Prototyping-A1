@@ -8,7 +8,17 @@ public enum GameSFX
     ConnectionSuccess,
     LinePull,
     LineCancel,
-    HoverPort
+    HoverPort,
+    zombie_punch,
+    explosion,
+    zombie_hit,
+    zombie_knockback,
+    zombie_death,
+    UI_button,
+    reload,
+    player_hit,
+    key,
+    gate_opening
 }
 
 [Serializable]

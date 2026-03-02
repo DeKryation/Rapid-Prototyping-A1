@@ -19,6 +19,8 @@ public class NavMeshAgentKnockback : MonoBehaviour
     IEnumerator Knockback(Vector3 direction, float force)
     {
         //insert knockback sfx here
+        AudioManager.Instance.PlaySFX(GameSFX.zombie_knockback);
+
         if (agent == null) yield break;
 
         agent.enabled = false;

@@ -53,7 +53,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             ammoDisplayVariable.text = currentRounds.ToString();
             ammoCap.text = maxRounds.ToString();
-            ammoDisplayVariable.color = currentRounds < 6 ? Color.red : Color.white;
+            ammoDisplayVariable.color = currentRounds < 4 ? new Color(0.8616352f, 0.1761203f, 0.1761203f, 1f) : Color.white;
 
             if (isReloading)
                 return;

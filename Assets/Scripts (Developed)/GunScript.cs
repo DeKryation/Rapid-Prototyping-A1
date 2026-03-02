@@ -34,7 +34,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public float knockbackForce = 5f;
         public int upgradePoints = 0;
         public int zombieKills = 0;
-        public int killsPerPoint = 3;
+        public int killsPerPoint = 1;
 
         void Start()
         {

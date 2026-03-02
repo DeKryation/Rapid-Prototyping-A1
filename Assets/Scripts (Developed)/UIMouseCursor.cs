@@ -2,17 +2,22 @@ using UnityEngine;
 
 public class UIMouseCursor : MonoBehaviour
 {
-   
-    void Start()
+    void OnEnable()
     {
-        // Force cursor to show and unlock
+        Time.timeScale = 0f; // Pause game
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
+    void OnDisable()
+    {
+        Time.timeScale = 1f; // Resume game
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     void Update()
     {
-        // Keep cursor visible and unlocked (in case something tries to hide it)
         if (Cursor.lockState != CursorLockMode.None)
         {
             Cursor.lockState = CursorLockMode.None;
@@ -22,5 +27,4 @@ public class UIMouseCursor : MonoBehaviour
             Cursor.visible = true;
         }
     }
-
 }

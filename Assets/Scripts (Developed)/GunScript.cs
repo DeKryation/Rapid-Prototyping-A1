@@ -43,6 +43,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             currentRounds = maxRounds;
             shootse = GetComponent<AudioSource>();
+            UpdatePoints();
 
         }
 
@@ -53,7 +54,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         void Update()
-        {
+        {   
+            
+            // Update UI displays
+            ammoDisplay.text = currentRounds.ToString();
+            ammoDisplay.color = currentRounds < 4 ? new Color(0.8616352f, 0.1761203f, 0.1761203f, 1f) : Color.white;
+
+            if (pointText != null)
+            {
+                pointText.text = upgradePoints.ToString(); // Keep UI in sync every frame
+            }
+
             if (Input.GetKeyDown(KeyCode.R) && currentRounds < maxRounds)
             {
                 StartCoroutine(Reload());

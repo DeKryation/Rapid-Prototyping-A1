@@ -43,6 +43,16 @@ public class AIExploder : MonoBehaviour
         {
             Debug.LogError("[AIExploder] MobileHealthController not found in scene! Player damage will not work.");
         }
+
+        // Find the player if not assigned
+        if (fpsc == null)
+        {
+            fpsc = FindObjectOfType<FirstPersonController>();
+            if (fpsc == null)
+            {
+                return;
+            }
+        }
     }
 
     public void ZombiePunchStart()

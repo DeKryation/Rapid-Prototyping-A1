@@ -2385,7 +2385,7 @@ GameObject:
   - component: {fileID: 8804205604038411060}
   m_Layer: 0
   m_Name: Base HumanNeck
-  m_TagString: Untagged
+  m_TagString: ZombieHead
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

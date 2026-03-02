@@ -36,7 +36,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         void Start()
         {
-            
+
             currentRounds = maxRounds;
             shootse = GetComponent<AudioSource>();
 
@@ -107,7 +107,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if (zombieHead != null) zombieHead.TakeDamage(9999f);
                 else if (exploderHead != null) exploderHead.TakeDamage(9999f);
 
-                
+
             }
             else if (hitBody)
             {
@@ -125,7 +125,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     ApplyKnockback(exploderTarget.transform, fpsCam.transform.forward);
                 }
 
-               
+
             }
         }
 
@@ -142,7 +142,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         // New ammo count
-        void SetAmmo (int newAmmoCount)
+        void SetAmmo(int newAmmoCount)
         {
             currentRounds = Mathf.Clamp(newAmmoCount, 0, maxRounds);
             if (isReloading)
@@ -179,6 +179,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
             damage = Mathf.Max(damage, 1f);
 
             Debug.Log("Damage upgraded! New damage: " + damage);
+        }
+
+
+        public void UpgradeDamage()
+        {
+            damage += 5f;
+            Debug.Log("Damage Upgraded: " + damage);
+        }
+
+        public void UpgradeAmmo()
+        {
+            maxRounds += 3;
+            currentRounds = maxRounds;
+            Debug.Log("Ammo Upgraded: " + maxRounds);
+        }
+
+        public void UpgradeReload()
+        {
+            reloadTime *= 0.9f;
+            Debug.Log("Reload Faster: " + reloadTime);
         }
     }
 }

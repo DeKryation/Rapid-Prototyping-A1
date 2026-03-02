@@ -24317,7 +24317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21056d6cf0edea34a8baa934e878e729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 964054883}
+  coinText: {fileID: 0}
 --- !u!4 &1190735425
 Transform:
   m_ObjectHideFlags: 0
@@ -38791,7 +38791,7 @@ MonoBehaviour:
   player: {fileID: 1036418899}
   playerHealth: 100
   healthText: {fileID: 1121929844}
-  flashImage: {fileID: 2104646265}
+  flashImage: {fileID: 1894568843}
   healthBar: {fileID: 2070519180}
   flashDuration: 0.5
   minFlashAlpha: 0.1

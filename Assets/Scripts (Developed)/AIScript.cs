@@ -188,6 +188,7 @@ public class AIScript : MonoBehaviour
         }
         if (health <= 0f)
         {
+            isDead = true;
             Death();
         }
     }

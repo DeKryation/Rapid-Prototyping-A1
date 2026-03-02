@@ -256,8 +256,14 @@ public class AIExploder : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
-        if (isDead) return;
+        Debug.Log($"[EXPLODER DEBUG] TakeDamage called! Amount: {amount}, Current Health: {health}, isDead: {isDead}");
 
+        if (isDead)
+        {
+            Debug.Log("[EXPLODER DEBUG] Already dead, returning early");
+
+            return;
+        }
         health -= amount;
         //insert hit sfx
         AudioManager.Instance.PlaySFX(GameSFX.zombie_hit);
@@ -272,6 +278,7 @@ public class AIExploder : MonoBehaviour
         }
         if (health <= 0f)
         {
+            isDead = true;
             Death();
         }
     }

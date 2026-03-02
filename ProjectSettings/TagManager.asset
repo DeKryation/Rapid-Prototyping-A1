@@ -8,6 +8,9 @@ TagManager:
   - ZombiePunch
   - Coin
   - ZombieHead
+  - Trees
+  - Fences
+  - Wall
   layers:
   - Default
   - TransparentFX

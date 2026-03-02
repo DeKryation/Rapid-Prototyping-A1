@@ -44,6 +44,7 @@ public class AIExploder : MonoBehaviour
             Debug.LogError("[AIExploder] MobileHealthController not found in scene! Player damage will not work.");
         }
 
+        
         // Find the player if not assigned
         if (fpsc == null)
         {
@@ -52,6 +53,15 @@ public class AIExploder : MonoBehaviour
             {
                 return;
             }
+        }
+
+        Rigidbody rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = false; // Allow physics
+            rb.useGravity = true;
+            rb.constraints = RigidbodyConstraints.FreezeRotation; // Don't tip over
+            rb.mass = 50f; // Heavier = less pushing through walls
         }
     }
 
@@ -185,7 +195,22 @@ public class AIExploder : MonoBehaviour
     {
         isAware = true;
     }
+    private void OnCollisionStay(Collision collision)
+    {
+        // If touching a wall/fence, stop moving through it
+        if (collision.gameObject.CompareTag("Walls") || collision.gameObject.CompareTag("Fences")|| collision.gameObject.CompareTag("Trees"))   
+        {
+            // Push back slightly from the wall
+            Vector3 pushDirection = (transform.position - collision.contacts[0].point).normalized;
+            transform.position += pushDirection * 0.1f;
 
+            // Optional: Find a new wander point if stuck
+            if (!isAware)
+            {
+                wanderPoint = RandomMovePoint();
+            }
+        }
+    }
     public void Wander()
     {
         if (agent == null || !agent.isOnNavMesh || !agent.enabled) return;

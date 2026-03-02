@@ -34765,6 +34765,10 @@ MonoBehaviour:
     type: 3}
   animator: {fileID: 1721996375}
   knockbackForce: 5
+  upgradePoints: 0
+  zombieKills: 0
+  killsPerPoint: 1
+  pointText: {fileID: 1661776685}
 --- !u!82 &1721996378
 AudioSource:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class AITankScript : MonoBehaviour
     private Renderer renderer;
     private Animator animator;
     public Transform hitVFXPrefab;
+    public MobileHealthController mhc;
 
     public GameObject m_RightFist;
 
@@ -33,6 +34,22 @@ public class AITankScript : MonoBehaviour
         renderer = GetComponent<Renderer>();
         animator = GetComponentInChildren<Animator>();
         wanderPoint = RandomMovePoint();
+
+        mhc = FindObjectOfType<MobileHealthController>();
+        if (mhc == null)
+        {
+            Debug.LogError("[AIExploder] MobileHealthController not found in scene! Player damage will not work.");
+        }
+
+        // Find the player if not assigned
+        if (fpsc == null)
+        {
+            fpsc = FindObjectOfType<FirstPersonController>();
+            if (fpsc == null)
+            {
+                return;
+            }
+        }
 
     }
 

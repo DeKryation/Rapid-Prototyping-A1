@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 12744233}
   - component: {fileID: 12744234}
   m_Layer: 0
-  m_Name: AIPlaceHolder (3)
+  m_Name: Exploder
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1614,7 +1614,7 @@ GameObject:
   - component: {fileID: 80178518}
   - component: {fileID: 80178519}
   m_Layer: 0
-  m_Name: AIPlaceHolder (13)
+  m_Name: Exploder
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1982,7 +1982,7 @@ PrefabInstance:
     - target: {fileID: 13700010, guid: abfe6fc5a9b390a488839c1fc3b58dcd, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8037d301b260d214fbea59e83e088904, type: 2}
+      objectReference: {fileID: 2100000, guid: a84d284ef2fe9d54ca251ac9e0289ad3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3099,10 +3099,10 @@ GameObject:
   - component: {fileID: 157367749}
   - component: {fileID: 157367747}
   - component: {fileID: 157367746}
-  - component: {fileID: 157367753}
   - component: {fileID: 157367754}
+  - component: {fileID: 157367755}
   m_Layer: 0
-  m_Name: AIPlaceHolder (6)
+  m_Name: Normal Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3236,33 +3236,6 @@ Transform:
   - {fileID: 282724392}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &157367753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 157367745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6afdb784a77ff44fb65a31f37128773, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsc: {fileID: 2106046538}
-  fov: 120
-  viewDistance: 10
-  wanderingRadius: 7
-  WanderSpeed: 4
-  chaseSpeed: 7
-  m_RightFist: {fileID: 1092046260}
-  health: 50
-  isExploder: 0
-  explosionRange: 2.5
-  explosionDamage: 40
-  mhc: {fileID: 0}
-  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
-  sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &157367754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3275,6 +3248,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6f91fc67198e44d9ad4b92f4c9e05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &157367755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157367745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e7f4ee7d796ff469a858476ec80813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsc: {fileID: 2106046538}
+  fov: 120
+  viewDistance: 10
+  wanderingRadius: 7
+  WanderSpeed: 4
+  chaseSpeed: 7
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
+  mhc: {fileID: 0}
+  m_RightFist: {fileID: 1092046260}
+  health: 50
 --- !u!1 &158531158 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100136, guid: abfe6fc5a9b390a488839c1fc3b58dcd,
@@ -6749,7 +6744,7 @@ PrefabInstance:
     - target: {fileID: 13700010, guid: abfe6fc5a9b390a488839c1fc3b58dcd, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8037d301b260d214fbea59e83e088904, type: 2}
+      objectReference: {fileID: 2100000, guid: a84d284ef2fe9d54ca251ac9e0289ad3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7682,7 +7677,7 @@ PrefabInstance:
     - target: {fileID: 13700010, guid: abfe6fc5a9b390a488839c1fc3b58dcd, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8037d301b260d214fbea59e83e088904, type: 2}
+      objectReference: {fileID: 2100000, guid: 791948e7b2e090d49b4ad2ba99275ea9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8857,8 +8852,9 @@ GameObject:
   - component: {fileID: 494654251}
   - component: {fileID: 494654258}
   - component: {fileID: 494654259}
+  - component: {fileID: 494654260}
   m_Layer: 0
-  m_Name: AIPlaceHolder (11)
+  m_Name: Tank
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8999,7 +8995,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494654250}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6afdb784a77ff44fb65a31f37128773, type: 3}
   m_Name: 
@@ -9031,6 +9027,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6f91fc67198e44d9ad4b92f4c9e05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &494654260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494654250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d14b97c27f84bc4ba4d73523664d2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsc: {fileID: 2106046538}
+  fov: 120
+  viewDistance: 10
+  wanderingRadius: 7
+  WanderSpeed: 2
+  chaseSpeed: 4
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
+  mhc: {fileID: 0}
+  m_RightFist: {fileID: 1092046260}
+  health: 70
 --- !u!1001 &501942377
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11290,7 +11308,7 @@ PrefabInstance:
     - target: {fileID: 13700010, guid: abfe6fc5a9b390a488839c1fc3b58dcd, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8037d301b260d214fbea59e83e088904, type: 2}
+      objectReference: {fileID: 2100000, guid: 791948e7b2e090d49b4ad2ba99275ea9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11855,10 +11873,10 @@ GameObject:
   - component: {fileID: 688775932}
   - component: {fileID: 688775930}
   - component: {fileID: 688775929}
-  - component: {fileID: 688775936}
   - component: {fileID: 688775937}
+  - component: {fileID: 688775938}
   m_Layer: 0
-  m_Name: AIPlaceHolder (10)
+  m_Name: Normal Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11992,33 +12010,6 @@ Transform:
   - {fileID: 105378760}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &688775936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 688775928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6afdb784a77ff44fb65a31f37128773, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsc: {fileID: 2106046538}
-  fov: 120
-  viewDistance: 10
-  wanderingRadius: 7
-  WanderSpeed: 4
-  chaseSpeed: 7
-  m_RightFist: {fileID: 1092046260}
-  health: 50
-  isExploder: 0
-  explosionRange: 2.5
-  explosionDamage: 40
-  mhc: {fileID: 0}
-  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
-  sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &688775937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12031,6 +12022,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6f91fc67198e44d9ad4b92f4c9e05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &688775938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688775928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e7f4ee7d796ff469a858476ec80813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsc: {fileID: 2106046538}
+  fov: 120
+  viewDistance: 10
+  wanderingRadius: 7
+  WanderSpeed: 4
+  chaseSpeed: 7
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
+  mhc: {fileID: 0}
+  m_RightFist: {fileID: 311105333}
+  health: 50
 --- !u!1 &690662187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100098, guid: abfe6fc5a9b390a488839c1fc3b58dcd,
@@ -12848,7 +12861,7 @@ GameObject:
   - component: {fileID: 737615617}
   - component: {fileID: 737615624}
   m_Layer: 0
-  m_Name: AIPlaceHolder (7)
+  m_Name: Normal Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12992,7 +13005,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 737615616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6afdb784a77ff44fb65a31f37128773, type: 3}
+  m_Script: {fileID: 11500000, guid: e6e7f4ee7d796ff469a858476ec80813, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fpsc: {fileID: 2106046538}
@@ -13001,15 +13014,10 @@ MonoBehaviour:
   wanderingRadius: 7
   WanderSpeed: 4
   chaseSpeed: 7
-  m_RightFist: {fileID: 1092046260}
-  health: 50
-  isExploder: 0
-  explosionRange: 2.5
-  explosionDamage: 40
-  mhc: {fileID: 0}
-  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
-  sizeMultiplier: 1
   hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
+  mhc: {fileID: 0}
+  m_RightFist: {fileID: 311105333}
+  health: 50
 --- !u!1001 &750168702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18668,10 +18676,10 @@ GameObject:
   - component: {fileID: 1141136882}
   - component: {fileID: 1141136880}
   - component: {fileID: 1141136879}
-  - component: {fileID: 1141136886}
   - component: {fileID: 1141136887}
+  - component: {fileID: 1141136888}
   m_Layer: 0
-  m_Name: AIPlaceHolder (5)
+  m_Name: Normal Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18805,33 +18813,6 @@ Transform:
   - {fileID: 306226881}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1141136886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141136878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6afdb784a77ff44fb65a31f37128773, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsc: {fileID: 2106046538}
-  fov: 120
-  viewDistance: 10
-  wanderingRadius: 7
-  WanderSpeed: 4
-  chaseSpeed: 7
-  m_RightFist: {fileID: 1092046260}
-  health: 50
-  isExploder: 0
-  explosionRange: 2.5
-  explosionDamage: 40
-  mhc: {fileID: 0}
-  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
-  sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &1141136887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18844,6 +18825,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6f91fc67198e44d9ad4b92f4c9e05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1141136888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141136878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e7f4ee7d796ff469a858476ec80813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsc: {fileID: 2106046538}
+  fov: 120
+  viewDistance: 10
+  wanderingRadius: 7
+  WanderSpeed: 4
+  chaseSpeed: 7
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
+  mhc: {fileID: 0}
+  m_RightFist: {fileID: 311105333}
+  health: 50
 --- !u!1001 &1144348787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20886,10 +20889,10 @@ GameObject:
   - component: {fileID: 1278519942}
   - component: {fileID: 1278519940}
   - component: {fileID: 1278519939}
-  - component: {fileID: 1278519946}
   - component: {fileID: 1278519947}
+  - component: {fileID: 1278519948}
   m_Layer: 0
-  m_Name: AIPlaceHolder (8)
+  m_Name: Normal Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21023,33 +21026,6 @@ Transform:
   - {fileID: 595465545}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1278519946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278519938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6afdb784a77ff44fb65a31f37128773, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsc: {fileID: 2106046538}
-  fov: 120
-  viewDistance: 10
-  wanderingRadius: 7
-  WanderSpeed: 4
-  chaseSpeed: 7
-  m_RightFist: {fileID: 1092046260}
-  health: 50
-  isExploder: 0
-  explosionRange: 2.5
-  explosionDamage: 40
-  mhc: {fileID: 0}
-  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
-  sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &1278519947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21062,6 +21038,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6f91fc67198e44d9ad4b92f4c9e05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1278519948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278519938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e7f4ee7d796ff469a858476ec80813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsc: {fileID: 2106046538}
+  fov: 120
+  viewDistance: 10
+  wanderingRadius: 7
+  WanderSpeed: 4
+  chaseSpeed: 7
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
+  mhc: {fileID: 0}
+  m_RightFist: {fileID: 1092046260}
+  health: 50
 --- !u!1001 &1280290417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24942,7 +24940,7 @@ PrefabInstance:
     - target: {fileID: 13700010, guid: abfe6fc5a9b390a488839c1fc3b58dcd, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 8037d301b260d214fbea59e83e088904, type: 2}
+      objectReference: {fileID: 2100000, guid: 791948e7b2e090d49b4ad2ba99275ea9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27685,10 +27683,10 @@ GameObject:
   - component: {fileID: 1658810836}
   - component: {fileID: 1658810834}
   - component: {fileID: 1658810833}
-  - component: {fileID: 1658810840}
   - component: {fileID: 1658810841}
+  - component: {fileID: 1658810842}
   m_Layer: 0
-  m_Name: AIPlaceHolder (4)
+  m_Name: Tank
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27822,33 +27820,6 @@ Transform:
   - {fileID: 164133412}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1658810840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658810832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6afdb784a77ff44fb65a31f37128773, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsc: {fileID: 2106046538}
-  fov: 120
-  viewDistance: 10
-  wanderingRadius: 7
-  WanderSpeed: 4
-  chaseSpeed: 7
-  m_RightFist: {fileID: 1092046260}
-  health: 50
-  isExploder: 0
-  explosionRange: 2.5
-  explosionDamage: 40
-  mhc: {fileID: 0}
-  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
-  sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &1658810841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27861,6 +27832,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6f91fc67198e44d9ad4b92f4c9e05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1658810842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658810832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d14b97c27f84bc4ba4d73523664d2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fpsc: {fileID: 2106046538}
+  fov: 120
+  viewDistance: 10
+  wanderingRadius: 7
+  WanderSpeed: 2
+  chaseSpeed: 4
+  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
+  mhc: {fileID: 0}
+  m_RightFist: {fileID: 1092046260}
+  health: 70
 --- !u!1001 &1667906030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30546,10 +30539,9 @@ GameObject:
   - component: {fileID: 1814147006}
   - component: {fileID: 1814147004}
   - component: {fileID: 1814147003}
-  - component: {fileID: 1814147010}
   - component: {fileID: 1814147011}
   m_Layer: 0
-  m_Name: AIPlaceHolder (9)
+  m_Name: Normal Zombie
   m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30683,33 +30675,6 @@ Transform:
   - {fileID: 473928720}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1814147010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1814147002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6afdb784a77ff44fb65a31f37128773, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fpsc: {fileID: 2106046538}
-  fov: 120
-  viewDistance: 10
-  wanderingRadius: 7
-  WanderSpeed: 4
-  chaseSpeed: 7
-  m_RightFist: {fileID: 1092046260}
-  health: 50
-  isExploder: 0
-  explosionRange: 2.5
-  explosionDamage: 40
-  mhc: {fileID: 0}
-  explosionPrefab: {fileID: 400010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
-  sizeMultiplier: 1
-  hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!114 &1814147011
 MonoBehaviour:
   m_ObjectHideFlags: 0

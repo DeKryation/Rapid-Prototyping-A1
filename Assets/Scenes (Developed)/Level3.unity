@@ -372,6 +372,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 311105333}
   health: 50
 --- !u!195 &12744229
@@ -999,6 +1000,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 1482325166}
   health: 50
 --- !u!195 &53277361
@@ -8816,6 +8818,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 1646982931}
   health: 50
 --- !u!195 &453268078
@@ -13923,6 +13926,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 2120667221}
   health: 50
 --- !u!195 &695982889
@@ -20052,7 +20056,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1042481017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20108,6 +20112,7 @@ MonoBehaviour:
   WanderSpeed: 1.8
   chaseSpeed: 5
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 971983148}
   health: 100
 --- !u!195 &1042481020
@@ -21079,6 +21084,7 @@ MonoBehaviour:
   WanderSpeed: 1.8
   chaseSpeed: 5
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 918550498}
   health: 100
 --- !u!195 &1129112752
@@ -23419,7 +23425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1241392193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23475,6 +23481,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 2137798453}
   health: 50
 --- !u!195 &1241392196
@@ -24012,6 +24019,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 956582868}
   health: 50
 --- !u!195 &1275871453
@@ -24517,6 +24525,7 @@ MonoBehaviour:
   WanderSpeed: 1.8
   chaseSpeed: 5
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 1698395310}
   health: 100
 --- !u!195 &1307156058
@@ -27588,7 +27597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1476597670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27644,6 +27653,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 1344202336}
   health: 50
 --- !u!195 &1476597673
@@ -32458,6 +32468,7 @@ MonoBehaviour:
   WanderSpeed: 1.8
   chaseSpeed: 5
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 1011902106}
   health: 100
 --- !u!195 &1717413032
@@ -34297,6 +34308,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 1846155161}
   health: 50
 --- !u!195 &1806004880
@@ -36006,6 +36018,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 1533067091}
   health: 50
 --- !u!195 &1890861054
@@ -44671,6 +44684,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 2040841673}
   health: 50
 --- !u!195 &2100632311
@@ -45176,6 +45190,7 @@ MonoBehaviour:
   WanderSpeed: 1.25
   chaseSpeed: 3
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 762233612}
   health: 50
 --- !u!195 &2145106613

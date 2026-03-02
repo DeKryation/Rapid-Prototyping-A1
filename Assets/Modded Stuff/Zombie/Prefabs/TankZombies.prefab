@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 558997275967480463}
   - component: {fileID: 559692943118235122}
   - component: {fileID: 2867585865497392835}
+  - component: {fileID: -7645798337251600915}
   m_Layer: 0
   m_Name: TankZombies
   m_TagString: Zombie
@@ -211,10 +212,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 10
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -290,8 +291,36 @@ MonoBehaviour:
   WanderSpeed: 2
   chaseSpeed: 4
   hitVFXPrefab: {fileID: 0}
+  mhc: {fileID: 0}
   m_RightFist: {fileID: 6894740541448629304}
   health: 70
+--- !u!54 &-7645798337251600915
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280619249532394828}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 1
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &6894740541448530646
 PrefabInstance:
   m_ObjectHideFlags: 0

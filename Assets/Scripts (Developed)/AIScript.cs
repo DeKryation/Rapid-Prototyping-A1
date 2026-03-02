@@ -26,7 +26,7 @@ public class AIScript : MonoBehaviour
 
     public float health = 50f;
     public GunScript GunScript;
-
+    private bool isDead = false; 
 
     // Start is called before the first frame update
     public void Start()
@@ -173,6 +173,7 @@ public class AIScript : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
         health -= amount;
         //insert hit sfx
 

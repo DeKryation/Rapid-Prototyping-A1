@@ -24,6 +24,7 @@ public class AITankScript : MonoBehaviour
 
     public GameObject m_RightFist;
     public GunScript GunScript;
+    private bool isDead = false;
 
     public float health = 70f;
 
@@ -174,6 +175,7 @@ public class AITankScript : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
         health -= amount;
         if (hitVFXPrefab != null)
         {

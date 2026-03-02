@@ -30,6 +30,7 @@ public class AIExploder : MonoBehaviour
     public float sizeMultiplier = 1f;
     public Transform hitVFXPrefab;
     public GunScript GunScript;
+    private bool isDead = false;
 
     // Start is called before the first frame update
     public void Start()
@@ -251,6 +252,8 @@ public class AIExploder : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
+
         health -= amount;
         //insert hit sfx
 

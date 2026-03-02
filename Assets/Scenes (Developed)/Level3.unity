@@ -62977,7 +62977,7 @@ MonoBehaviour:
   player: {fileID: 1036418899}
   playerHealth: 100
   healthText: {fileID: 108092107}
-  flashImage: {fileID: 0}
+  flashImage: {fileID: 2102532329}
   healthBar: {fileID: 1388116031}
   flashDuration: 0.4
   minFlashAlpha: 0.1

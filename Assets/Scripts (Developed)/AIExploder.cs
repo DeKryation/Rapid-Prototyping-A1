@@ -29,6 +29,8 @@ public class AIExploder : MonoBehaviour
     public Transform explosionPrefab;
     public float sizeMultiplier = 1f;
     public Transform hitVFXPrefab;
+    public GunScript GunScript;
+    private bool isDead = false;
 
     // Start is called before the first frame update
     public void Start()
@@ -254,6 +256,8 @@ public class AIExploder : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
+
         health -= amount;
         //insert hit sfx
         AudioManager.Instance.PlaySFX(GameSFX.zombie_hit);
@@ -278,6 +282,10 @@ public class AIExploder : MonoBehaviour
         if (!hasExploded)
         {
             Debug.Log($"[AIExploder] {gameObject.name} died and is EXPLODING!");
+            if (GunScript != null)
+            {
+                GunScript.RegisterKill();
+            }
             Explode();
         }
     }

@@ -23,6 +23,8 @@ public class AITankScript : MonoBehaviour
     public MobileHealthController mhc;
 
     public GameObject m_RightFist;
+    public GunScript GunScript;
+    private bool isDead = false;
 
     public float health = 70f;
 
@@ -73,6 +75,7 @@ public class AITankScript : MonoBehaviour
     }
     public void Update()
     {
+        if (agent == null || !agent.isOnNavMesh || !agent.enabled) return; // Add safety check
 
         if (isAware)
         {
@@ -172,6 +175,7 @@ public class AITankScript : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        if (isDead) return;
         health -= amount;
         if (hitVFXPrefab != null)
         {
@@ -190,6 +194,10 @@ public class AITankScript : MonoBehaviour
         animator.SetBool("Death", true);
         chaseSpeed = 0f;
         WanderSpeed = 0f;
+        if (GunScript != null)
+        {
+            GunScript.RegisterKill();
+        }
         Destroy(gameObject, 3f);
 
     }

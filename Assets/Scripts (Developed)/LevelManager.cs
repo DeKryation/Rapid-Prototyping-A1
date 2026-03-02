@@ -21,8 +21,11 @@ public class LevelManager : MonoBehaviour
                 popUp.SetActive(false);
                 break;
             case "QuitButton":
+#if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
-                Application.Quit(); ;
+#else
+    Application.Quit();
+#endif
                 break;
             case "RestartButton":
                 /* if (levelEnd1.level1Completed)

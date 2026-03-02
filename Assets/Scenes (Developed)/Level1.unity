@@ -34750,7 +34750,8 @@ MonoBehaviour:
   range: 100
   fireRate: 7
   shootse: {fileID: 0}
-  ammoDisplay: {fileID: 440274262}
+  ammoDisplayVariable: {fileID: 993042158}
+  ammoCap: {fileID: 513899996}
   fpsController: {fileID: 2106046538}
   upRecoil: 3
   sideRecoil: 1
@@ -38601,7 +38602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1036418899}
   playerHealth: 100
-  healthText: {fileID: 1592313877}
+  healthText: {fileID: 1121929844}
   flashImage: {fileID: 2104646265}
   flashDuration: 0.5
   minFlashAlpha: 0.1

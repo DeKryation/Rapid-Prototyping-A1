@@ -13,7 +13,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public AudioSource shootse;
 
-        public Text ammoDisplay;
+        public Text ammoDisplayVariable;
+        public Text ammoCap;
 
         public FirstPersonController fpsController;
         public float upRecoil;
@@ -50,8 +51,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         void Update()
         {
-            ammoDisplay.text = currentRounds.ToString();
-            ammoDisplay.color = currentRounds < 6 ? Color.red : Color.white;
+            ammoDisplayVariable.text = currentRounds.ToString();
+            ammoCap.text = maxRounds.ToString();
+            ammoDisplayVariable.color = currentRounds < 6 ? Color.red : Color.white;
 
             if (isReloading)
                 return;

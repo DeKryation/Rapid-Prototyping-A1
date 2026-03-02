@@ -76,6 +76,14 @@ public class AITankScript : MonoBehaviour
 
         if (isAware)
         {
+            Vector3 directionToPlayer = (fpsc.transform.position - transform.position).normalized;
+            directionToPlayer.y = 0; // Keep rotation only on Y axis (horizontal)
+
+            if (directionToPlayer != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(directionToPlayer);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+            }
             agent.SetDestination(fpsc.transform.position);
             if (agent.remainingDistance < 1.0f)
             {
@@ -122,12 +130,18 @@ public class AITankScript : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
+       
+        
         // If touching a wall/fence, stop moving through it
-        if (collision.gameObject.CompareTag("Walls") || collision.gameObject.CompareTag("Fences") || collision.gameObject.CompareTag("Trees"))
-        {
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Fences") || collision.gameObject.CompareTag("Trees"))
+        {  // IGNORE collisions from own body parts (children)
+            if (collision.gameObject.transform.IsChildOf(transform))
+            {
+                return; // Skip if it's our own arm/body part
+            }
             // Push back slightly from the wall
             Vector3 pushDirection = (transform.position - collision.contacts[0].point).normalized;
-            transform.position += pushDirection * 0.1f;
+            transform.position += pushDirection * 0.5f;
 
             // Optional: Find a new wander point if stuck
             if (!isAware)

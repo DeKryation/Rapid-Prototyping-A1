@@ -13946,7 +13946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16352195, g: 0.1547802, b: 0.1547802, a: 1}
+  m_Color: {r: 0.1137255, g: 0.10980393, b: 0.10980393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -25426,7 +25426,7 @@ MonoBehaviour:
   upgradePoints: 0
   zombieKills: 0
   killsPerPoint: 1
-  pointText: {fileID: 0}
+  pointText: {fileID: 1704683963}
 --- !u!82 &1721996378
 AudioSource:
   m_ObjectHideFlags: 0

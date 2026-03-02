@@ -29,7 +29,6 @@ public class AIExploder : MonoBehaviour
     public Transform explosionPrefab;
     public float sizeMultiplier = 1f;
     public Transform hitVFXPrefab;
-    public GunScript GunScript;
 
     // Start is called before the first frame update
     public void Start()
@@ -273,10 +272,6 @@ public class AIExploder : MonoBehaviour
         if (!hasExploded)
         {
             Debug.Log($"[AIExploder] {gameObject.name} died and is EXPLODING!");
-            if (GunScript != null)
-            {
-                GunScript.RegisterKill();
-            }
             Explode();
         }
     }

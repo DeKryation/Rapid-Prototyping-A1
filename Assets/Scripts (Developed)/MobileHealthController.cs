@@ -12,7 +12,6 @@ public class MobileHealthController : MonoBehaviour
     public float playerHealth = 100;
     [SerializeField] private Text healthText;
     [SerializeField] private Image flashImage; // Assign your vignette UI Image here
-    public Slider healthBar;
 
     [Header("Flash Red Settings")]
     [SerializeField] private float flashDuration = 0.4f;
@@ -24,8 +23,6 @@ public class MobileHealthController : MonoBehaviour
     private void Start()
     {
         previousHealth = playerHealth;
-        healthBar.maxValue = playerHealth;
-        healthBar.value = playerHealth;
 
         if (flashImage != null)
         {
@@ -50,7 +47,6 @@ public class MobileHealthController : MonoBehaviour
 
         healthText.text = playerHealth.ToString("0");
         healthText.color = playerHealth < 10 ? Color.red : Color.white;
-        healthBar.value = previousHealth;
 
         if (playerHealth <= 0)
         {

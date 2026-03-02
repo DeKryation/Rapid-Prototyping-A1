@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Audio;
-using TMPro;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -14,8 +13,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public AudioSource shootse;
 
-        public Text ammoDisplayVariable;
-        public Text ammoCap;
+        public Text ammoDisplay;
 
         public FirstPersonController fpsController;
         public float upRecoil;
@@ -34,17 +32,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public Animator animator;
         public float knockbackForce = 5f;
-        public int upgradePoints = 0;
-        public int zombieKills = 0;
-        public int killsPerPoint = 1;
-        public TMP_Text pointText;
+
 
         void Start()
         {
-
+            
             currentRounds = maxRounds;
             shootse = GetComponent<AudioSource>();
-            UpdatePoints();
 
         }
 
@@ -56,25 +50,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         void Update()
         {
-
-            // Update UI displays
-            ammoDisplayVariable.text = currentRounds.ToString();
-            ammoDisplayVariable.color = currentRounds < 4 ? new Color(0.8616352f, 0.1761203f, 0.1761203f, 1f) : Color.white;
-            ammoCap.text = maxRounds.ToString();
-
-            if (pointText != null)
-            {
-                pointText.text = upgradePoints.ToString(); // Keep UI in sync every frame
-            }
-
-            if (Input.GetKeyDown(KeyCode.R) && currentRounds < maxRounds)
-            {
-                StartCoroutine(Reload());
-                return;
-            }
-
-            ammoDisplayVariable.text = currentRounds.ToString();
-            ammoDisplayVariable.color = currentRounds < 4 ? new Color(0.8616352f, 0.1761203f, 0.1761203f, 1f) : Color.white;
+            ammoDisplay.text = currentRounds.ToString();
+            ammoDisplay.color = currentRounds < 6 ? Color.red : Color.white;
 
             if (isReloading)
                 return;
@@ -127,69 +104,32 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 Debug.Log("HEADSHOT!");
                 AIScript zombieHead = headHit.transform.GetComponentInParent<AIScript>();
                 AIExploder exploderHead = headHit.transform.GetComponentInParent<AIExploder>();
-                AITankScript tankHead = headHit.transform.GetComponentInParent<AITankScript>();
+                if (zombieHead != null) zombieHead.TakeDamage(9999f);
+                else if (exploderHead != null) exploderHead.TakeDamage(9999f);
 
-                if (zombieHead != null)
-                {
-                    zombieHead.GunScript = this; // Set reference before killing
-                    zombieHead.TakeDamage(9999f);
-                }
-                else if (exploderHead != null)
-                {
-                    exploderHead.GunScript = this; // Set reference before killing
-                    exploderHead.TakeDamage(10f);
-                }
-                else if (tankHead != null)
-                {
-                    tankHead.GunScript = this; // Set reference before killing
-                    tankHead.TakeDamage(9999f);
-                }
+                
             }
             else if (hitBody)
             {
                 AIScript target = bodyHit.transform.GetComponent<AIScript>() ?? bodyHit.transform.GetComponentInParent<AIScript>();
                 AIExploder exploderTarget = bodyHit.transform.GetComponent<AIExploder>() ?? bodyHit.transform.GetComponentInParent<AIExploder>();
                 AITankScript tankTarget = bodyHit.transform.GetComponent<AITankScript>() ?? bodyHit.transform.GetComponentInParent<AITankScript>();
-
                 if (target != null)
                 {
-                    target.GunScript = this; // Set reference
                     target.TakeDamage(damage);
                     ApplyKnockback(target.transform, fpsCam.transform.forward);
                 }
                 else if (exploderTarget != null)
                 {
-                    exploderTarget.GunScript = this; // Set reference
                     exploderTarget.TakeDamage(damage);
                     ApplyKnockback(exploderTarget.transform, fpsCam.transform.forward);
                 }
-                else if (tankTarget != null)
-                {
-                    tankTarget.GunScript = this; // Set reference
-                    tankTarget.TakeDamage(damage);
-                    ApplyKnockback(tankTarget.transform, fpsCam.transform.forward);
-                }
+
+               
             }
         }
 
-        public void RegisterKill()
-        {
-            zombieKills++;
-            Debug.Log($"Zombie killed! Total kills: {zombieKills}");
 
-            if (zombieKills >= killsPerPoint)
-            {
-                upgradePoints++;
-                UpdatePoints();
-                zombieKills = 0;
-                Debug.Log($"Upgrade point earned! Total points: {upgradePoints}");
-            }
-        }
-
-        public void UpdatePoints()
-        {
-            pointText.text = upgradePoints.ToString();
-        }
 
         void ApplyKnockback(Transform zombie, Vector3 shotDirection)
         {
@@ -201,77 +141,44 @@ namespace UnityStandardAssets.Characters.FirstPerson
             knockback.ApplyKnockback(shotDirection, knockbackForce);
         }
 
-
-        // Below are old upgrade methods.
-
-        //// New ammo count
-        //void SetAmmo(int newAmmoCount)
-        //{
-        //    currentRounds = Mathf.Clamp(newAmmoCount, 0, maxRounds);
-        //    if (isReloading)
-        //    {
-        //        StopCoroutine(Reload());
-        //        isReloading = false;
-        //        animator.SetBool("Reloading", false);
-        //    }
-        //}
-
-        //// New reload speed upgrade.
-        //void UpgradeReloadSpeed(float percentageDecrease)
-        //{
-        //    // Clamp percentage between 0 and 100 to prevent invalid values
-        //    percentageDecrease = Mathf.Clamp(percentageDecrease, 0f, 100f);
-
-        //    // Calculate the new reload time
-        //    float decreaseMultiplier = 1f - (percentageDecrease / 100f);
-        //    reloadTime = reloadTime * decreaseMultiplier;
-
-        //    // Optional: Prevent reload time from going too low
-        //    reloadTime = Mathf.Max(reloadTime, 0.3f); // Minimum 0.3 seconds
-
-        //    Debug.Log("Reload time upgraded! New reload time: " + reloadTime + "s");
-        //}
-
-        //// New ammo damage.
-        //void UpgradeDamage(float newDamage)
-        //{
-        //    // Set the new damage value
-        //    damage = newDamage;
-
-        //    // Prevent damage from being set to negative or zero
-        //    damage = Mathf.Max(damage, 1f);
-
-        //    Debug.Log("Damage upgraded! New damage: " + damage);
-        //}
-
-
-        public void UpgradeDamage()
+        // New ammo count
+        void SetAmmo (int newAmmoCount)
         {
-            if (upgradePoints <= 0) return;
-
-            upgradePoints--;
-            UpdatePoints();
-            damage += 5f;
+            currentRounds = Mathf.Clamp(newAmmoCount, 0, maxRounds);
+            if (isReloading)
+            {
+                StopCoroutine(Reload());
+                isReloading = false;
+                animator.SetBool("Reloading", false);
+            }
         }
 
-        public void UpgradeAmmo()
+        // New reload speed upgrade.
+        void UpgradeReloadSpeed(float percentageDecrease)
         {
-            if (upgradePoints <= 0) return;
+            // Clamp percentage between 0 and 100 to prevent invalid values
+            percentageDecrease = Mathf.Clamp(percentageDecrease, 0f, 100f);
 
-            upgradePoints--;
-            UpdatePoints();
-            maxRounds += 3;
-            currentRounds = maxRounds;
+            // Calculate the new reload time
+            float decreaseMultiplier = 1f - (percentageDecrease / 100f);
+            reloadTime = reloadTime * decreaseMultiplier;
+
+            // Optional: Prevent reload time from going too low
+            reloadTime = Mathf.Max(reloadTime, 0.3f); // Minimum 0.3 seconds
+
+            Debug.Log("Reload time upgraded! New reload time: " + reloadTime + "s");
         }
 
-        public void UpgradeReload()
+        // New ammo damage.
+        void UpgradeDamage(float newDamage)
         {
-            if (upgradePoints <= 0) return;
+            // Set the new damage value
+            damage = newDamage;
 
-            upgradePoints--;
-            UpdatePoints();
-            reloadTime *= 0.9f;
-            reloadTime = Mathf.Max(0.5f, reloadTime);
+            // Prevent damage from being set to negative or zero
+            damage = Mathf.Max(damage, 1f);
+
+            Debug.Log("Damage upgraded! New damage: " + damage);
         }
     }
 }

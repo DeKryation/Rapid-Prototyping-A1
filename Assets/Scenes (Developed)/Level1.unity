@@ -29094,7 +29094,7 @@ MonoBehaviour:
   upRecoil: 3
   sideRecoil: 1
   maxRounds: 12
-  reloadTime: 1
+  reloadTime: 3
   fpsCam: {fileID: 1880389260}
   muzzleFlash: {fileID: 2088003268}
   impactEffect: {fileID: 8745213638467103976, guid: 6120cb7bb13ff294db3497afd3bad0ed,

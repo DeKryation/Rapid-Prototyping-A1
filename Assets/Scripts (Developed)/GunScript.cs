@@ -21,7 +21,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public int maxRounds = 12;
         private int currentRounds;
-        public float reloadTime = 1f;
+        public float reloadTime = 3f;
         private bool isReloading = false;
 
         public Camera fpsCam;
@@ -36,9 +36,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         void Start()
         {
-            if (currentRounds == -1)
-                currentRounds = maxRounds;
-
+            
+            currentRounds = maxRounds;
             shootse = GetComponent<AudioSource>();
 
         }
@@ -114,7 +113,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 AIScript target = bodyHit.transform.GetComponent<AIScript>() ?? bodyHit.transform.GetComponentInParent<AIScript>();
                 AIExploder exploderTarget = bodyHit.transform.GetComponent<AIExploder>() ?? bodyHit.transform.GetComponentInParent<AIExploder>();
-
+                AITankScript tankTarget = bodyHit.transform.GetComponent<AITankScript>() ?? bodyHit.transform.GetComponentInParent<AITankScript>();
                 if (target != null)
                 {
                     target.TakeDamage(damage);
@@ -142,6 +141,44 @@ namespace UnityStandardAssets.Characters.FirstPerson
             knockback.ApplyKnockback(shotDirection, knockbackForce);
         }
 
-     
+        // New ammo count
+        void SetAmmo (int newAmmoCount)
+        {
+            currentRounds = Mathf.Clamp(newAmmoCount, 0, maxRounds);
+            if (isReloading)
+            {
+                StopCoroutine(Reload());
+                isReloading = false;
+                animator.SetBool("Reloading", false);
+            }
+        }
+
+        // New reload speed upgrade.
+        void UpgradeReloadSpeed(float percentageDecrease)
+        {
+            // Clamp percentage between 0 and 100 to prevent invalid values
+            percentageDecrease = Mathf.Clamp(percentageDecrease, 0f, 100f);
+
+            // Calculate the new reload time
+            float decreaseMultiplier = 1f - (percentageDecrease / 100f);
+            reloadTime = reloadTime * decreaseMultiplier;
+
+            // Optional: Prevent reload time from going too low
+            reloadTime = Mathf.Max(reloadTime, 0.3f); // Minimum 0.3 seconds
+
+            Debug.Log("Reload time upgraded! New reload time: " + reloadTime + "s");
+        }
+
+        // New ammo damage.
+        void UpgradeDamage(float newDamage)
+        {
+            // Set the new damage value
+            damage = newDamage;
+
+            // Prevent damage from being set to negative or zero
+            damage = Mathf.Max(damage, 1f);
+
+            Debug.Log("Damage upgraded! New damage: " + damage);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Audio;
+using TMPro;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -35,6 +36,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public int upgradePoints = 0;
         public int zombieKills = 0;
         public int killsPerPoint = 1;
+        public TMP_Text pointText;
 
         void Start()
         {
@@ -159,9 +161,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (zombieKills >= killsPerPoint)
             {
                 upgradePoints++;
+                UpdatePoints();
                 zombieKills = 0;
                 Debug.Log($"Upgrade point earned! Total points: {upgradePoints}");
             }
+        }
+
+        public void UpdatePoints()
+        {
+            pointText.text = upgradePoints.ToString();
         }
 
         void ApplyKnockback(Transform zombie, Vector3 shotDirection)
@@ -223,6 +231,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (upgradePoints <= 0) return;
 
             upgradePoints--;
+            UpdatePoints();
             damage += 5f;
         }
 
@@ -231,6 +240,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (upgradePoints <= 0) return;
 
             upgradePoints--;
+            UpdatePoints();
             maxRounds += 3;
             currentRounds = maxRounds;
         }
@@ -240,6 +250,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (upgradePoints <= 0) return;
 
             upgradePoints--;
+            UpdatePoints();
             reloadTime *= 0.9f;
             reloadTime = Mathf.Max(0.5f, reloadTime);
         }

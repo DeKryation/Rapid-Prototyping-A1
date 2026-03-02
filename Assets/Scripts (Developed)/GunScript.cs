@@ -38,6 +38,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public int zombieKills = 0;
         public int killsPerPoint = 1;
         public TMP_Text pointText;
+        public Transform hitVFXPrefab;
+
 
         void Start()
         {
@@ -124,6 +126,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (hitHead)
             {
+                if (hitVFXPrefab != null)
+                {
+                    Transform vfx = Instantiate(hitVFXPrefab, headHit.point, Quaternion.LookRotation(headHit.normal));
+                    Destroy(vfx.gameObject, 2f);
+                }
                 Debug.Log("HEADSHOT!");
                 AIScript zombieHead = headHit.transform.GetComponentInParent<AIScript>();
                 AIExploder exploderHead = headHit.transform.GetComponentInParent<AIExploder>();
@@ -137,13 +144,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 else if (exploderHead != null)
                 {
                    // exploderHead.GunScript = this; // Set reference before killing
-                    exploderHead.TakeDamage(10f);
+                    exploderHead.TakeDamage(9999f);
                 }
                 else if (tankHead != null)
                 {
                    // tankHead.GunScript = this; // Set reference before killing
-                    tankHead.TakeDamage(9999f);
+                    tankHead.TakeDamage(50f);
                 }
+
+             
             }
             else if (hitBody)
             {

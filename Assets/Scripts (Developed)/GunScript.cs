@@ -38,6 +38,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public int zombieKills = 0;
         public int killsPerPoint = 1;
         public TMP_Text pointText;
+        public TMP_Text shopText;
         public Transform hitVFXPrefab;
 
 
@@ -67,6 +68,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (pointText != null)
             {
                 pointText.text = upgradePoints.ToString(); // Keep UI in sync every frame
+            }
+            if (shopText != null)
+            {
+                shopText.text = upgradePoints.ToString(); // Keep UI in sync every frame
             }
 
             if (Input.GetKeyDown(KeyCode.R) && currentRounds < maxRounds)
@@ -198,6 +203,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public void UpdatePoints()
         {
             pointText.text = upgradePoints.ToString();
+            shopText.text = upgradePoints.ToString();
         }
 
         void ApplyKnockback(Transform zombie, Vector3 shotDirection)

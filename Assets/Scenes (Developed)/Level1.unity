@@ -33253,7 +33253,7 @@ GameObject:
   - component: {fileID: 1661776686}
   - component: {fileID: 1661776685}
   m_Layer: 5
-  m_Name: Currency
+  m_Name: Kill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35054,6 +35054,7 @@ MonoBehaviour:
   zombieKills: 0
   killsPerPoint: 1
   pointText: {fileID: 1661776685}
+  shopText: {fileID: 0}
   hitVFXPrefab: {fileID: 400000, guid: 921a3ff88856fe04ebc86b196fd8cc59, type: 3}
 --- !u!82 &1721996378
 AudioSource:

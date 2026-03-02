@@ -32,7 +32,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public Animator animator;
         public float knockbackForce = 5f;
-
+        public int upgradePoints = 0;
+        public int zombieKills = 0;
+        public int killsPerPoint = 3;
 
         void Start()
         {
@@ -104,32 +106,63 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 Debug.Log("HEADSHOT!");
                 AIScript zombieHead = headHit.transform.GetComponentInParent<AIScript>();
                 AIExploder exploderHead = headHit.transform.GetComponentInParent<AIExploder>();
-                if (zombieHead != null) zombieHead.TakeDamage(9999f);
-                else if (exploderHead != null) exploderHead.TakeDamage(9999f);
+                AITankScript tankHead = headHit.transform.GetComponentInParent<AITankScript>();
 
-
+                if (zombieHead != null)
+                {
+                    zombieHead.GunScript = this; // Set reference before killing
+                    zombieHead.TakeDamage(9999f);
+                }
+                else if (exploderHead != null)
+                {
+                    exploderHead.GunScript = this; // Set reference before killing
+                    exploderHead.TakeDamage(10f);
+                }
+                else if (tankHead != null)
+                {
+                    tankHead.GunScript = this; // Set reference before killing
+                    tankHead.TakeDamage(9999f);
+                }
             }
             else if (hitBody)
             {
                 AIScript target = bodyHit.transform.GetComponent<AIScript>() ?? bodyHit.transform.GetComponentInParent<AIScript>();
                 AIExploder exploderTarget = bodyHit.transform.GetComponent<AIExploder>() ?? bodyHit.transform.GetComponentInParent<AIExploder>();
                 AITankScript tankTarget = bodyHit.transform.GetComponent<AITankScript>() ?? bodyHit.transform.GetComponentInParent<AITankScript>();
+
                 if (target != null)
                 {
+                    target.GunScript = this; // Set reference
                     target.TakeDamage(damage);
                     ApplyKnockback(target.transform, fpsCam.transform.forward);
                 }
                 else if (exploderTarget != null)
                 {
+                    exploderTarget.GunScript = this; // Set reference
                     exploderTarget.TakeDamage(damage);
                     ApplyKnockback(exploderTarget.transform, fpsCam.transform.forward);
                 }
-
-
+                else if (tankTarget != null)
+                {
+                    tankTarget.GunScript = this; // Set reference
+                    tankTarget.TakeDamage(damage);
+                    ApplyKnockback(tankTarget.transform, fpsCam.transform.forward);
+                }
             }
         }
 
+        public void RegisterKill()
+        {
+            zombieKills++;
+            Debug.Log($"Zombie killed! Total kills: {zombieKills}");
 
+            if (zombieKills >= killsPerPoint)
+            {
+                upgradePoints++;
+                zombieKills = 0;
+                Debug.Log($"Upgrade point earned! Total points: {upgradePoints}");
+            }
+        }
 
         void ApplyKnockback(Transform zombie, Vector3 shotDirection)
         {
@@ -141,64 +174,74 @@ namespace UnityStandardAssets.Characters.FirstPerson
             knockback.ApplyKnockback(shotDirection, knockbackForce);
         }
 
-        // New ammo count
-        void SetAmmo(int newAmmoCount)
-        {
-            currentRounds = Mathf.Clamp(newAmmoCount, 0, maxRounds);
-            if (isReloading)
-            {
-                StopCoroutine(Reload());
-                isReloading = false;
-                animator.SetBool("Reloading", false);
-            }
-        }
 
-        // New reload speed upgrade.
-        void UpgradeReloadSpeed(float percentageDecrease)
-        {
-            // Clamp percentage between 0 and 100 to prevent invalid values
-            percentageDecrease = Mathf.Clamp(percentageDecrease, 0f, 100f);
+        // Below are old upgrade methods.
 
-            // Calculate the new reload time
-            float decreaseMultiplier = 1f - (percentageDecrease / 100f);
-            reloadTime = reloadTime * decreaseMultiplier;
+        //// New ammo count
+        //void SetAmmo(int newAmmoCount)
+        //{
+        //    currentRounds = Mathf.Clamp(newAmmoCount, 0, maxRounds);
+        //    if (isReloading)
+        //    {
+        //        StopCoroutine(Reload());
+        //        isReloading = false;
+        //        animator.SetBool("Reloading", false);
+        //    }
+        //}
 
-            // Optional: Prevent reload time from going too low
-            reloadTime = Mathf.Max(reloadTime, 0.3f); // Minimum 0.3 seconds
+        //// New reload speed upgrade.
+        //void UpgradeReloadSpeed(float percentageDecrease)
+        //{
+        //    // Clamp percentage between 0 and 100 to prevent invalid values
+        //    percentageDecrease = Mathf.Clamp(percentageDecrease, 0f, 100f);
 
-            Debug.Log("Reload time upgraded! New reload time: " + reloadTime + "s");
-        }
+        //    // Calculate the new reload time
+        //    float decreaseMultiplier = 1f - (percentageDecrease / 100f);
+        //    reloadTime = reloadTime * decreaseMultiplier;
 
-        // New ammo damage.
-        void UpgradeDamage(float newDamage)
-        {
-            // Set the new damage value
-            damage = newDamage;
+        //    // Optional: Prevent reload time from going too low
+        //    reloadTime = Mathf.Max(reloadTime, 0.3f); // Minimum 0.3 seconds
 
-            // Prevent damage from being set to negative or zero
-            damage = Mathf.Max(damage, 1f);
+        //    Debug.Log("Reload time upgraded! New reload time: " + reloadTime + "s");
+        //}
 
-            Debug.Log("Damage upgraded! New damage: " + damage);
-        }
+        //// New ammo damage.
+        //void UpgradeDamage(float newDamage)
+        //{
+        //    // Set the new damage value
+        //    damage = newDamage;
+
+        //    // Prevent damage from being set to negative or zero
+        //    damage = Mathf.Max(damage, 1f);
+
+        //    Debug.Log("Damage upgraded! New damage: " + damage);
+        //}
 
 
         public void UpgradeDamage()
         {
+            if (upgradePoints <= 0) return;
+
+            upgradePoints--;
             damage += 5f;
-            Debug.Log("Damage Upgraded: " + damage);
         }
 
         public void UpgradeAmmo()
         {
+            if (upgradePoints <= 0) return;
+
+            upgradePoints--;
             maxRounds += 3;
             currentRounds = maxRounds;
-            Debug.Log("Ammo Upgraded: " + maxRounds);
         }
 
         public void UpgradeReload()
         {
+            if (upgradePoints <= 0) return;
+
+            upgradePoints--;
             reloadTime *= 0.9f;
-            Debug.Log("Reload Faster: " + reloadTime);
+            reloadTime = Mathf.Max(0.5f, reloadTime);
         }
     }
 }

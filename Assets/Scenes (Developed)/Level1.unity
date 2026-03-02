@@ -4763,7 +4763,7 @@ GameObject:
   - component: {fileID: 271852534}
   - component: {fileID: 271852533}
   m_Layer: 5
-  m_Name: Ammo
+  m_Name: AmmoCap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6849,7 +6849,7 @@ GameObject:
   - component: {fileID: 440274263}
   - component: {fileID: 440274262}
   m_Layer: 5
-  m_Name: GunAmmoNumber
+  m_Name: GunAmmoNumberVariable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13930,8 +13930,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.000366, y: -1.5004272}
-  m_SizeDelta: {x: 220, y: 85}
+  m_AnchoredPosition: {x: -14.9208, y: -1.5004272}
+  m_SizeDelta: {x: 265.8423, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &931861766
 MonoBehaviour:
@@ -25410,7 +25410,8 @@ MonoBehaviour:
   range: 100
   fireRate: 7
   shootse: {fileID: 0}
-  ammoDisplay: {fileID: 440274262}
+  ammoDisplayVariable: {fileID: 440274262}
+  ammoCap: {fileID: 271852533}
   fpsController: {fileID: 2106046538}
   upRecoil: 3
   sideRecoil: 1

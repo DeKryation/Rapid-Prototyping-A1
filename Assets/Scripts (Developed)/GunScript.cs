@@ -14,7 +14,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         public AudioSource shootse;
 
-        public Text ammoDisplay;
+        public Text ammoDisplayVariable;
+        public Text ammoCap;
 
         public FirstPersonController fpsController;
         public float upRecoil;
@@ -54,11 +55,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         void Update()
-        {   
-            
+        {
+
             // Update UI displays
-            ammoDisplay.text = currentRounds.ToString();
-            ammoDisplay.color = currentRounds < 4 ? new Color(0.8616352f, 0.1761203f, 0.1761203f, 1f) : Color.white;
+            ammoDisplayVariable.text = currentRounds.ToString();
+            ammoDisplayVariable.color = currentRounds < 4 ? new Color(0.8616352f, 0.1761203f, 0.1761203f, 1f) : Color.white;
+            ammoCap.text = maxRounds.ToString();
 
             if (pointText != null)
             {
@@ -71,8 +73,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 return;
             }
 
-            ammoDisplay.text = currentRounds.ToString();
-            ammoDisplay.color = currentRounds < 4 ? new Color(0.8616352f, 0.1761203f, 0.1761203f, 1f) : Color.white;
+            ammoDisplayVariable.text = currentRounds.ToString();
+            ammoDisplayVariable.color = currentRounds < 4 ? new Color(0.8616352f, 0.1761203f, 0.1761203f, 1f) : Color.white;
 
             if (isReloading)
                 return;

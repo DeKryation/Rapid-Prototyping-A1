@@ -374,6 +374,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 311105333}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &12744229
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -923,6 +924,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 1482325166}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &53277361
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -8884,6 +8886,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 1646982931}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &453268078
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -14201,6 +14204,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 2120667221}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &695982889
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -20979,6 +20983,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 971983148}
   health: 100
+  GunScript: {fileID: 0}
 --- !u!195 &1042481020
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -21950,6 +21955,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 918550498}
   health: 100
+  GunScript: {fileID: 0}
 --- !u!195 &1129112752
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -24496,6 +24502,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 2137798453}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &1241392196
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -25033,6 +25040,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 956582868}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &1275871453
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -25800,6 +25808,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 1698395310}
   health: 100
+  GunScript: {fileID: 0}
 --- !u!195 &1307156058
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -29276,6 +29285,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 1344202336}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &1476597673
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -34462,6 +34472,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 1011902106}
   health: 100
+  GunScript: {fileID: 0}
 --- !u!195 &1717413032
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -34598,7 +34609,7 @@ MonoBehaviour:
   fpsController: {fileID: 2106046538}
   upRecoil: 3
   sideRecoil: 1
-  maxRounds: 30
+  maxRounds: 12
   reloadTime: 1
   fpsCam: {fileID: 1880389260}
   muzzleFlash: {fileID: 2088003268}
@@ -34606,6 +34617,9 @@ MonoBehaviour:
     type: 3}
   animator: {fileID: 1721996375}
   knockbackForce: 5
+  upgradePoints: 0
+  zombieKills: 0
+  killsPerPoint: 1
 --- !u!82 &1721996378
 AudioSource:
   m_ObjectHideFlags: 0
@@ -35470,6 +35484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvasUI: {fileID: 1651665014}
   playerTag: Player
+  interactionKey: 101
+  promptUI: {fileID: 0}
 --- !u!114 &1754920199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36437,6 +36453,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 1846155161}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &1806004880
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -38355,6 +38372,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 1533067091}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &1890861054
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -47567,6 +47585,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 2040841673}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &2100632311
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -48208,6 +48227,7 @@ MonoBehaviour:
   hitVFXPrefab: {fileID: 0}
   m_RightFist: {fileID: 762233612}
   health: 50
+  GunScript: {fileID: 0}
 --- !u!195 &2145106613
 NavMeshAgent:
   m_ObjectHideFlags: 0

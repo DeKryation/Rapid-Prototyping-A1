@@ -52,6 +52,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         void Update()
         {
+            if (Input.GetKeyDown(KeyCode.R) && currentRounds < maxRounds)
+            {
+                StartCoroutine(Reload());
+                return;
+            }
+
             ammoDisplay.text = currentRounds.ToString();
             ammoDisplay.color = currentRounds < 4 ? new Color(0.8616352f, 0.1761203f, 0.1761203f, 1f) : Color.white;
 

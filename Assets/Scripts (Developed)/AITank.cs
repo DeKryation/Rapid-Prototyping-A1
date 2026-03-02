@@ -25,6 +25,7 @@ public class AITankScript : MonoBehaviour
     public GameObject m_RightFist;
 
     public float health = 70f;
+    public GunScript GunScript;
 
 
     // Start is called before the first frame update
@@ -73,6 +74,7 @@ public class AITankScript : MonoBehaviour
     }
     public void Update()
     {
+        if (agent == null || !agent.isOnNavMesh || !agent.enabled) return; // Add safety check
 
         if (isAware)
         {
@@ -190,6 +192,10 @@ public class AITankScript : MonoBehaviour
         animator.SetBool("Death", true);
         chaseSpeed = 0f;
         WanderSpeed = 0f;
+        if (GunScript != null)
+        {
+            GunScript.RegisterKill();
+        }
         Destroy(gameObject, 3f);
 
     }
